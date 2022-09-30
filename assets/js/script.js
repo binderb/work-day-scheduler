@@ -43,7 +43,7 @@ function build_planner() {
       s += '<div class="col-1 p-4 h-100 d-flex align-items-start justify-content-end hour">';
         s += moment('8:00 AM','h:mm A').add(3600000*i).format('h A');
       s += '</div>';
-      s += '<textarea class="col-10 p-0 h-100 p-2 text-white"></textarea>';
+      s += '<textarea class="col-10 p-0 h-100 p-2"></textarea>';
       s += '<button class="col-1 h-100 d-flex align-items-center justify-content-center saveBtn"><i class="fas fa-check fa-lg"></i></button>';
     s += '</div>';
   }
