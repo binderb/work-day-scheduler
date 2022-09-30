@@ -44,7 +44,7 @@ function build_planner() {
         s += moment('8:00 AM','h:mm A').add(3600000*i).format('h A');
       s += '</div>';
       s += '<textarea class="col-10 p-0 h-100 p-2 text-white"></textarea>';
-      s += '<button class="col-1 h-100 d-flex align-items-center justify-content-center saveBtn fas fa-check fa-lg"></button>';
+      s += '<button class="col-1 h-100 d-flex align-items-center justify-content-center saveBtn"><i class="fas fa-check fa-lg"></i></button>';
     s += '</div>';
   }
   $('#planner-table').append(s);
@@ -77,8 +77,9 @@ function build_planner() {
 // adjacent to a textarea that has been edited,
 // letting the user know that unsaved changes may exist.
 function activate_save_button () {
-  $(this).siblings('button').removeClass("fas fa-check fa-lg");
-  $(this).siblings('button').addClass("fas fa-save fa-lg edited");
+  $(this).siblings('button').find('i').removeClass("fas fa-check fa-lg");
+  $(this).siblings('button').addClass('edited');
+  $(this).siblings('button').find('i').addClass("fas fa-save fa-lg");
 }
 
 // This function gathers entry data from the appropriate row
@@ -95,8 +96,9 @@ function save_entry () {
   entries[entry_index] = entry_data;
   localStorage.setItem('entries',JSON.stringify(entries));
 
-  $(this).removeClass("fas fa-save fa-lg edited");
-  $(this).addClass("fas fa-check fa-lg");
+  $(this).removeClass('edited');
+  $(this).find('i').removeClass("fas fa-save fa-lg");
+  $(this).find('i').addClass("fas fa-check fa-lg");
 }
 
 // Startup function that will run after page load.
